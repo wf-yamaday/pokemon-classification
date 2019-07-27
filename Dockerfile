@@ -5,4 +5,4 @@ ADD . ./
 
 RUN pip install -r requirements.txt
 
-CMD ["flask", "run"]
+CMD ["python", "app.py"]
