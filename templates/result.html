@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block body %}
+<article class="uk-article">
+  <h2 class="uk-heading-divider">結果</h2>
+  <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+    <div class="uk-card-media-left uk-cover-container">
+      <img id="img_src" alt="" uk-cover>
+      <canvas width="600" height="400"></canvas>
+    </div>
+    <div>
+      <div class="uk-card-body">
+        <h3 class="uk-card-title">詳細</h3>
+        <table class="uk-table">
+          <caption></caption>
+          <thead>
+            <tr>
+              <th>ラベル</th>
+              <th>確率</th>
+            </tr>
+          </thead>
+          {% for i in top_k: %}
+          <tbody>
+            <tr>
+              <td>
+                {{ labels[i] }}
+              </td>
+              <td>
+                {{ results[i] }}
+              </td>
+            </tr>
+          </tbody>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+  </div>
+  <div id="main"></div>
+
+</article>
+{% endblock %}
+
+{% block script %}
+
+<script>
+  const upload_img = '{{ upload_img }}'
+  let img = new Image()
+  document.getElementById("img_src").src = upload_img
+</script>
+{% endblock %}

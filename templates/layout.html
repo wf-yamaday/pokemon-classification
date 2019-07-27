@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" href="static/css/uikit.min.css" />
+
+  <title>{{ title }}</title>
+</head>
+<div class="uk-container uk-container-expand  uk-section-primary">
+  <nav class=" uk-navbar uk-margin" uk-navbar>
+    <div class="uk-navbar-left">
+      <a class="uk-navbar-item uk-logo" href="/">PTF</a>
+    </div>
+  </nav>
+</div>
+
+
+<body>
+  {% block loading %}
+  {% endblock %}
+  <div class="uk-section">
+    <div class="uk-container">
+      {% block body %}
+      {% endblock %}
+    </div>
+  </div>
+</body>
+<script src="static/js/jquery-3.4.1.min.js"></script>
+<script src="static/js/uikit.min.js"></script>
+<script src="static/js/uikit-icons.min.js"></script>
+{% block script %}
+{% endblock %}
+
+</html>
