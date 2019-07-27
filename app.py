@@ -16,6 +16,7 @@ PATTERN = 'image/*'
 
 
 @app.route('/poke-classification')
+@app.route('/poke-classification/')
 def index():
     return render_template('index.html', title="top")
 
