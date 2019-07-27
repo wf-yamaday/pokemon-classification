@@ -15,12 +15,12 @@ app = Flask(__name__)
 PATTERN = 'image/*'
 
 
-@app.route('/')
+@app.route('/poke-classification')
 def index():
     return render_template('index.html', title="top")
 
 
-@app.route('/prediction', methods=['POST'])
+@app.route('/poke-classification/prediction', methods=['POST'])
 def prediction():
     if 'img' not in request.files:
         return render_template('index.html', error='画像ファイルを選択してください．')
