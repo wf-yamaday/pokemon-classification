@@ -18,7 +18,7 @@ PATTERN = 'image/*'
 @app.route('/poke-classification')
 @app.route('/poke-classification/')
 def index():
-    return render_template('index.html', title="top")
+    return render_template('index.html', title="Top")
 
 
 @app.route('/poke-classification/prediction', methods=['POST'])
@@ -70,7 +70,7 @@ def prediction():
             upload_img = 'data:' + mimetype + ';base64,' + b64_img
 
         # print(upload_img)
-        return render_template('result.html', title="result", top_k=top_k, labels=labels, results=results, upload_img=upload_img)
+        return render_template('result.html', title="Result", top_k=top_k, labels=labels, results=results, upload_img=upload_img)
 
 
 def load_graph(model_file):
