@@ -7,7 +7,7 @@ services:
     build:
       context: ..
       dockerfile: ./docker/Dockerfile
-      image: onyx.u-gakugei.ac.jp/pokemon_app
+    image: onyx.u-gakugei.ac.jp/pokemon_app
     tty: true
     networks:
       - pokemon-network
