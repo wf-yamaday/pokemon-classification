@@ -1,0 +1,31 @@
+name: Docker image build && push
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Login to docker registry
+      run: docker login -u $REGISTRY_USER -p $REGISTRY_PASSWORD onyx.u-gakugei.ac.jp
+      env:
+        REGISTRY_USER: ${{ secrets.REGISTRY_USER }}
+        REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
+
+
+    - name: Build docker image
+      run: |
+        docker-compose -f ./docker/docker-compose.yml build app
+        cd docker && docker image build -t onyx.u-gakugei.ac.jp/pokemon_nginx:latest ./nginx
+
+    - name: Push docker image
+      run: |
+        docker push onyx.u-gakugei.ac.jp/pokemon_app:latest
+        docker push onyx.u-gakugei.ac.jp/pokemon_nginx:latest
